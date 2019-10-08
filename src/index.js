@@ -1,12 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Grommet } from "grommet";
+// import Messenger from "./components/Messenger";
+import KeyspaceFlow from "./components/KeyspaceFlow";
+// window.setInterval(() => {
+//   debugger;
+//   broadcaster.sendMessage("hello ya");
+// }, 1000);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const myTheme = {
+  global: {
+    font: {
+      family: "Lato"
+    }
+  }
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+class App extends React.Component {
+  render() {
+    return (
+      <Grommet full={true} theme={myTheme}>
+        <div className="App">
+          {/* <Messenger /> */}
+          <KeyspaceFlow />
+        </div>
+      </Grommet>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
